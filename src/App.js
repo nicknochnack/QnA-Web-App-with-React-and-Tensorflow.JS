@@ -9,7 +9,7 @@ import './App.css';
 import * as tf from "@tensorflow/tfjs";
 import * as qna from "@tensorflow-models/qna";
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import Loader from "react-loader-spinner";
+import { Puff} from "react-loader-spinner";
 import { Fragment } from 'react';
 
 
@@ -51,14 +51,14 @@ const App = () => {
         {model ==null ? 
           <div>
             <div>Model Loading</div>      
-            <Loader
+            <Puff
             type="Puff"
             color="#00BFFF"
             height={100}
             width={100}/>
           </div> 
           :  
-          <React.Fragment>
+          <Fragment>
             Passage
             <textarea ref={passageRef} rows="30" cols="100"></textarea>
             Ask a Question
@@ -66,7 +66,7 @@ const App = () => {
             <br /> 
             Answers
             {answer ? answer.map((ans, idx) =><div><b>Answer {idx+1} - </b> {ans.text} ({Math.floor(ans.score*100)/100})</div>) : ""}
-            </React.Fragment>
+            </Fragment>
         } 
       </header>
     </div>
